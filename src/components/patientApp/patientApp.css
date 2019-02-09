@@ -1,0 +1,73 @@
+/*
+    1. Sidenav
+    2. PatientList
+    3. PatientDetail
+*/
+
+aside.side-nav {
+    flex-basis: 20%;
+    background-color: var(--primary-color);
+    color: #8c8f93;
+}
+.user-profile {
+    display: flex;
+}
+.side-nav nav {
+    padding: 1rem;
+}
+.side-nav nav ul li {
+    padding: .75rem;
+}
+.side-nav nav ul li.active {
+    background-color: var(--sidenav-active-color);
+    border-radius: 10%;
+    color: white;
+}
+.user-profile img {
+    width: 64px;
+    height: 64px;
+}
+
+/* patient list */
+.patient-list-section {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    padding: 0 1rem;
+    border-right: 1px solid #efefef;
+}
+.patient-list-section .search-box input {
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid #efefef;
+}
+.patient-list-section .patient-list {
+    margin: 0 -1rem;
+}
+.patient-list-section .patient-list .patient-tile,
+.patient-detail-section .patient-header .patient-tile {
+    display: flex;
+    padding: .75rem 0;
+    border-top: 1px solid #efefef;
+}
+.patient-list-section .patient-list .patient-tile.active {
+    background-color: var(--selected-color);
+    color: white;
+}
+.patient-list-section .patient-list .patient-tile img,
+.patient-detail-section .patient-header .patient-tile img {
+    width: 64px;
+    height: 64px;
+}
+.patient-tile .patient-info h4 {
+    margin: .5rem 0;
+}
+.patient-detail-section {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+.patient-detail-section .patient-header .patient-tile {
+    border-top: 0;
+    border-bottom: 1px solid #efefef;
+}

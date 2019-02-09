@@ -1,0 +1,27 @@
+:root {
+  --primary-color: #383f47;
+  --selected-color: #4bd396;
+  --sidenav-active-color: #323840;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--primary-color);
+  height: 100vh;
+}
+
+#root {
+  height: 100%;
+}
+
+.flex-container {
+  display: flex;
+  height: 100%;
+}
+ul { margin: 0; padding: 0; list-style: none; }
+.tab-list { display: flex; flex-direction: row; justify-content: space-around; border-bottom: 1px solid #efefef; padding: 1rem 0; }
+.tab-list li { padding-left: .75rem; color: var(--selected-color); }
+.tab-list li.active { color: var(--primary-color); }
+.tiles { padding: 1rem 0; }
+.tile-list { display: flex; flex-direction: row; justify-content: space-around; }
