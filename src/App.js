@@ -4,6 +4,7 @@ import './App.css';
 import { Arithmetic }  from './pages/Exporter';
 // import {ellapse} from './pages/Arith';
 // import {display} from './pages/Display';
+import TodoAppContainer from './components/todoApp/TodoAppContainer';
 
 class App extends Component {
   render() {
@@ -25,6 +26,7 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <TodoAppContainer />
       </div>
     );
   }
