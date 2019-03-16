@@ -1,7 +1,9 @@
 import React from 'react';
 import logo from '../../../logo.svg';
+import { AppContext } from '../PatientContext';
 
 export default class PatientDetail extends React.Component {
+    static contextType = AppContext;
     render() {
         const patient = this.props.patient;
         return (
@@ -35,6 +37,8 @@ export default class PatientDetail extends React.Component {
                             })}
                         </ul>
                     </nav>
+                    {this.context.username} 
+                    <span style={{color: this.context.theme === 'dark'? '#333' : '#aaa'}}>Testing theme</span>
                 </div>
             </section>
 

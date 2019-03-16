@@ -6,6 +6,7 @@ import Router from '../router/Router';
 import PatientLanding from './PatientLanding';
 import NotFound from './NotFound';
 import NotAuthorised from './NotAuthorised';
+import { initialState, AppContext } from './PatientContext';
 
 const navMenus = [
     { label: 'Dashboard', permission: 'dashboard' },
@@ -38,16 +39,18 @@ const users = [
     { username: 'nurse', role: 'nurse' }
 ];
 
+
 export default class PatientApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             loggedIn: false,
-            userName: '',
+            username: '',
             userRole: '',
             userPermissions: [],
             currentRoute: '',
-            routedComponent: ''
+            routedComponent: '',
+            theme: 'light'
         };
     }
 
@@ -59,7 +62,7 @@ export default class PatientApp extends React.Component {
     }
 
     logout = () => {
-        this.setState({ loggedIn: false });
+        this.setState({ username: 'imnew', theme: 'dark' });
     }
 
     onNavClick = (routeName) => {
@@ -67,22 +70,24 @@ export default class PatientApp extends React.Component {
         const userPermissions = this.state.userPermissions;
         const route = routes.find(r => r.path === routeName);
         const permExists = userPermissions.includes(routeName);
-        const routedComponent = route? route.component : permExists? NotFound : NotAuthorised;
+        const routedComponent = route ? route.component : permExists ? NotFound : NotAuthorised;
         this.setState({ routedComponent, currentRoute: routeName });
     }
 
     render() {
         const RoutedComponent = this.state.routedComponent;
         const appComponent = (
-            <div className="flex-container">
-                <SideNav
-                    {...this.state}
-                    navMenus={navMenus}
-                    onNavClick={this.onNavClick} />
-                <Router>
-                    {RoutedComponent === ''? '' : <RoutedComponent />}
-                </Router>
-            </div>
+            <AppContext.Provider value={this.state}>
+                <div className="flex-container">
+                    <SideNav
+                        navMenus={navMenus}
+                        onNavClick={this.onNavClick}
+                        logout={this.logout} />
+                    <Router>
+                        {RoutedComponent === '' ? '' : <RoutedComponent />}
+                    </Router>
+                </div>
+            </AppContext.Provider>
         );
         return this.state.loggedIn ? appComponent : <Auth login={this.login} users={users} />;
     }

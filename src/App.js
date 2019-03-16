@@ -4,30 +4,18 @@ import './App.css';
 import { Arithmetic }  from './pages/Exporter';
 // import {ellapse} from './pages/Arith';
 // import {display} from './pages/Display';
-import TodoAppContainer from './components/todoApp/TodoAppContainer';
+// import TodoAppContainer from './components/todoApp/TodoAppContainer';
+import {CustomApp} from './pages/ExampleEventHandling';
+import PatientApp from './components/patientApp/PatientApp';
 
 class App extends Component {
+  buttonClick = () => {
+    console.log('button clicked');
+  }
+
   render() {
-    const arith = new Arithmetic(2,3);
-    arith.display(arith.add());
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <TodoAppContainer />
-      </div>
+      <PatientApp />
     );
   }
 }

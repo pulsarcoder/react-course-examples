@@ -1,4 +1,6 @@
 
+import React from 'react';
+
 class CounterButton extends React.Component {    
     incrementCount = (event) => {
         const count = this.props.count + 1;
@@ -34,7 +36,7 @@ class CounterButton extends React.Component {
     }
 }
 
-class CustomApp extends React.Component {
+export class CustomApp extends React.Component {
 
     constructor() {
         super();

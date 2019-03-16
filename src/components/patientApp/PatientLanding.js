@@ -22,6 +22,7 @@ export default class PatientLanding extends React.Component {
         this.state = {            
             patient: patients[1],
         }
+        console.log(this.props);
     }
     onPatientSelect = (patient) => {
         this.setState({ patient });

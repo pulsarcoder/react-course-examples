@@ -1,23 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+//import App from './App';
+import { createStore, combineReducers } from 'redux';
+import { connect, Provider } from 'react-redux';
 import { todoReducer } from './components/todoApp/todoReducer';
-import { Provider } from 'react-redux';
-import TodoAppContainer from './components/todoApp/TodoAppContainer';
+import TodoWrapper from './components/todoApp/TodoAppContainer';
+// store
+// actions => todoActions
+// reducers => todoReducer
 
-let store = createStore(todoReducer);
+const store = createStore(combineReducers({
+    todoApp: todoReducer
+}));
 
-store.subscribe(() => console.log(store.getState()));
-
-ReactDOM.render(
+const render = () => ReactDOM.render(
     <Provider store={store}>
-        <TodoAppContainer />
+        <TodoWrapper />
     </Provider>,
     document.getElementById('root'));
+render();
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// serviceWorker.unregister();

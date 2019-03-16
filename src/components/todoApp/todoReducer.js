@@ -2,15 +2,16 @@ const initialState = {
     todos: []
 };
 
-export const todoReducer = (prevState = initialState, action) => {
+export const todoReducer = (state = initialState, action) => {
+    let { todos } = state;
     switch (action.type) {
         case 'ADD_TODO':
-            const { todos } = prevState;
             todos.push(action.payload.todo);
-            return Object.assign({}, prevState, {
-                todos
-            });
+            return { todos };
+        case 'REMOVE_TODO':
+            todos.splice(action.payload.index, 1);
+            return { todos };
         default:
-            return { ...prevState };
+            return {...state};
     }
 }

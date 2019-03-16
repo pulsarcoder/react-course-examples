@@ -18,6 +18,7 @@ body, html {
 .flex-container {
   display: flex;
   height: 100%;
+  width: 100%;
 }
 ul { margin: 0; padding: 0; list-style: none; }
 .tab-list { display: flex; flex-direction: row; justify-content: space-around; border-bottom: 1px solid #efefef; padding: 1rem 0; }
