@@ -2,7 +2,7 @@ import React from 'react';
 import Input from './Input';
 import TodoList from './TodoList';
 
-// Data Management
+// Data Management, TodoAppComponent or TodoApp
 export class TodoAppRedux extends React.Component {
     render() {
         return (
